@@ -22,13 +22,8 @@ const Payments_ = ({}:Payments_Props) => {
           <div className={`w-[330px] h-[80px] mb-1`}></div>
         </div>
         <div className={`w-[350px] h-[80px] px-1 py-1 flex flex-row items-end`}>
-        <div
-            className={`w-[80px] hover:w-[120px] h-[40px] rounded-[2px] m-1 hover:bg-red-50 border-solid border-gray-300 hover:border-red-500 border-[0.5px] opacity-80 hover:opacity-100 transition-all duration-500 items-center justify-center flex flex-row font-bold text-gray-300 hover:text-red-500`}
-          >
-            x
-          </div>
           <div
-            className={`w-full h-[40px] rounded-[2px] m-1 bg-blue-500 opacity-60 hover:opacity-100 transition-all duration-200 text-white items-center justify-center flex flex-row font-bold`}
+            className={`w-full h-[40px] rounded-[2px] m-1 bg-blue-500 opacity-60 hover:opacity-100 transition-all duration-200 text-white items-center justify-center flex flex-row font-bold cursor-pointer`}
           >
             Buy Design
         </div>
