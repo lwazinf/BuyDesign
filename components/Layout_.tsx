@@ -20,7 +20,10 @@ import { useRecoilState } from "recoil";
 import { addressState } from "./atoms/atoms";
 
 export const Layout_ = ({ children }: Layout_Props) => {
+  // 👇️👇️👇️ (string) Recoil addressState is used when a purchase is made..
   const [address_, setAddress_] = useRecoilState(addressState);
+
+  // 👇️👇️👇️ Check if wallet is connected or not!
   const [currentAccount_, setCurrentAccount_] = useState("");
 
   const checkIfWalletIsConnected = async () => {
@@ -34,9 +37,6 @@ export const Layout_ = ({ children }: Layout_Props) => {
         console.log("We have the ethereum object", ethereum);
       }
 
-      /*
-       * Check if we're authorized to access the user's wallet
-       */
       const accounts = await ethereum.request({ method: "eth_accounts" });
 
       if (accounts.length !== 0) {
@@ -52,6 +52,7 @@ export const Layout_ = ({ children }: Layout_Props) => {
     }
   };
 
+  // 👇️👇️👇️ Self explanitory, connects the wallet to our web app
   const connectWallet = async () => {
     try {
       const { ethereum } = window;
@@ -72,32 +73,7 @@ export const Layout_ = ({ children }: Layout_Props) => {
     }
   };
 
-  // const makePayment = async () => {
-  //   try {
-  //     const { ethereum } = window;
-
-  //     if (ethereum) {
-  //       const contractAddress = "0x042249c18b70138A0e7341Ae02728628665bb0Ac";
-  //       const contractABI = abi.abi;
-
-  //       const provider = new ethers.providers.Web3Provider(ethereum);
-  //       const signer = provider.getSigner();
-  //       const buyDesign = new ethers.Contract(
-  //         contractAddress,
-  //         contractABI,
-  //         signer
-  //       );
-
-  //       let data_ = await buyDesign.viewOrder();
-  //       console.log(data_);
-  //     } else {
-  //       console.log("Ethereum object doesn't exist!");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
+  // 👇️👇️👇️ useEffect, React.. automatically runs our wallet checker
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
@@ -111,6 +87,7 @@ export const Layout_ = ({ children }: Layout_Props) => {
       </Head>
 
       <div className={`w-full h-[50px] fixed top-0`}>
+  {/* 👇️👇️👇️ MetaMask button.. */} 
         <div
           className={`transition-all duration-200 opacity-80 hover:opacity-100 flex flex-row relative right-3 w-[150px] h-full items-center justify-center m-2 ml-auto cursor-pointer`}
           onClick={() => {
@@ -123,6 +100,7 @@ export const Layout_ = ({ children }: Layout_Props) => {
               className={`h-full object-cover mr-auto relative left-[20px]`}
             />
 
+  {/* 👇️👇️👇️ MetaMask connection indicator.. */} 
             <FontAwesomeIcon
               icon={faCheckCircle}
               className={`absolute top-[1px] right-[-8px] m-2 h-[14px] w-[14px] ${
@@ -133,6 +111,7 @@ export const Layout_ = ({ children }: Layout_Props) => {
           <div
             className={`flex flex-col w-[100px] pl-6 pb-0 relative overflow-hidden transition-all duration-500`}
           >
+  {/* 👇️👇️👇️ MetaMask Text.. */} 
             <p
               className={`font-thin relative top-[1px] text-black/50 text-[14px]`}
             >
@@ -146,7 +125,8 @@ export const Layout_ = ({ children }: Layout_Props) => {
           </div>
         </div>
       </div>
-      {children}
+  {/* 👇️👇️👇️ Everything falls under this, as this is the layout file.. */} 
+  {children}
     </div>
   );
 };
