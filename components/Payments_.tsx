@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 interface Payments_Props {}
 
 const Payments_ = ({}: Payments_Props) => {
+  // 👇️👇️👇️ Recoil atoms..
   const [accent_, setAccent_] = useRecoilState(accentState);
   const [base_, setBase_] = useRecoilState(baseState);
   const [address_, setAddress_] = useRecoilState(addressState);
@@ -29,15 +30,17 @@ const Payments_ = ({}: Payments_Props) => {
   const [size_, setSize_] = useRecoilState(sizeState);
   const [notification_, setNotification_] = useRecoilState(notificationState);
 
+  // 👇️👇️👇️ Recoil atoms..
   const makePayment = async (orderDetails_: string) => {
     try {
       const { ethereum } = window;
 
       if (ethereum) {
+  // 👇️👇️👇️ Important contract/testnet specifics..
         const contractAddress = "0x5aB43EC3E812C62eb842d81f81C79F6fb445c950";
         const contractABI = abi.abi;
 
-        const provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const buyDesign = new ethers.Contract(
           contractAddress,
@@ -45,6 +48,7 @@ const Payments_ = ({}: Payments_Props) => {
           signer
         );
 
+  // 👇️👇️👇️ Contract functions..
         await buyDesign.initOrder(orderDetails_);
         let data_ = await buyDesign.viewOrder();
         console.log(data_);
@@ -59,7 +63,8 @@ const Payments_ = ({}: Payments_Props) => {
     <div
       className={`w-[350px] h-[400px] absolute top-[70px] right-0`}
     >
-      <div
+  {/* 👇️👇️👇️ This serves as a preview reciept for the customer.. */} 
+  <div
         className={`rounded-[4px] shadow-md bg-white/90 w-[350px] h-[400px] overflow-hidden`}
       >
         <div
@@ -98,7 +103,8 @@ const Payments_ = ({}: Payments_Props) => {
               <p
                 className={`text-[14px] opacity-40 font-light mb-1 w-full ml-auto capitalize`}
               >
-                {base_ == "brown"
+  {/* 👇️👇️👇️ Conditional JavaScript.. */} 
+  {base_ == "brown"
                   ? "lime"
                   : base_ == "blue"
                   ? "light purple"
@@ -112,7 +118,8 @@ const Payments_ = ({}: Payments_Props) => {
               <p
                 className={`text-[14px] opacity-40 font-light mb-1 w-full ml-auto capitalize`}
               >
-                {accent_ == "white"
+  {/* 👇️👇️👇️ Conditional JavaScript.. */} 
+  {accent_ == "white"
                   ? "black"
                   : accent_ == "black"
                   ? "white"
@@ -175,20 +182,24 @@ const Payments_ = ({}: Payments_Props) => {
               <p
                 className={`text-[15px] opacity-70 font-medium mb-1 w-full ml-auto capitalize`}
               >
-                {article_ == "cap" ? "$62" : "$67"}
+  {/* 👇️👇️👇️ Conditional JavaScript.. */} 
+  {article_ == "cap" ? "$62" : "$67"}
               </p>
             </div>
           </div>
           <div className={`w-[330px] h-[80px] mb-1`}></div>
+  {/* 👇️👇️👇️ Need to understand typescript's onChange function, couldn't change a Recoil atom.. */}
+
           {/* <input type={'email'} placeholder={`email`} className={`w-full h-[40px] rounded-[2px] p-2 border-solid border-[1px] border-gray-200 opacity-80 hover:opacity-100 transition-all duration-200 text-black/50 items-center justify-center font-light`} onChange={(e) => {
           setEmail_(e);
         }}/> */}
         </div>
         <div className={`w-[350px] h-[80px] px-1 py-1 flex flex-row items-end`}>
+          {/* 👇️👇️👇️ Where the magic happens. All Recoil atoms for use when actually making the clothes.. */} 
           <div
             className={`w-full h-[40px] rounded-[2px] m-1 bg-blue-500 opacity-60 hover:opacity-100 transition-all duration-200 text-white items-center justify-center flex flex-row font-bold cursor-pointer`}
             onClick={() => {
-              makePayment(
+  makePayment(
                 `{base: '${base_}', accent: '${accent_}', article: '${article_}', size: '${size_}', wallet: '${address_}', address: '${country_}', email: '${email_}', status: 'pending'}`
               );
               setNotification_(true);
