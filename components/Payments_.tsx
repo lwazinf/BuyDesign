@@ -34,7 +34,7 @@ const Payments_ = ({}: Payments_Props) => {
       const { ethereum } = window;
 
       if (ethereum) {
-        const contractAddress = "0x206848ea41cEbe94fEe2Bf83D682aACB88b2f57D";
+        const contractAddress = "0x5aB43EC3E812C62eb842d81f81C79F6fb445c950";
         const contractABI = abi.abi;
 
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -198,15 +198,18 @@ const Payments_ = ({}: Payments_Props) => {
           </div>
         </div>
       </div>
+      <p className={`absolute bottom-[-93px] text-[15px] font-normal opacity-100 pl-[93px] w-full`}>
+        Welcomes your creativity!
+        </p>
       <div className={`absolute bottom-[-100px] w-full flex flex-row items-center opacity-60 justify-center`}>
       <img
           className="h-[80px] transition-all duration-200 m-2"
           src="/assets/images/LwaziNF.png"
         />
-        <p className={`text-[50px] font-light opacity-50 text-center`}>
+        <p className={`text-[50px] mb-4 font-light opacity-50 text-center`}>
         buy
         </p>
-        <p className={`text-[50px] font-black text-center`}>
+        <p className={`text-[50px] mb-4 font-black text-center`}>
         Design
         </p>
       </div>

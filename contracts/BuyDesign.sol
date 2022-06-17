@@ -14,7 +14,7 @@ contract BuyDesign {
 
     function initOrder(string memory details) public payable {
         orderDetails = details;
-        // require(msg.value >= 1e10, "Please send the required ETH amount");
+        // require(msg.value >= 25959628, "Please send the required ETH amount");
         console.log('Order made, thank you for your interest in our service!');
     }
 

@@ -35,7 +35,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
       className={`rounded-[4px] shadow-md bg-white w-[830px] h-[500px] absolute top-[70px] left-0 overflow-hidden`}
     >
       <div
-        className={`flex h-[200px] w-[400px] rotate-3 self-center absolute top-[50px] opacity-60`}
+        className={`flex h-[200px] w-[400px] rotate-3 self-center absolute top-[50px] opacity-60 z-0`}
       >
         <img
           className="relative left-[-150px] top-[-50px] hidden h-[280px] rotate-[-100deg] opacity-40 transition-all duration-200 md:flex"
@@ -61,18 +61,22 @@ const CenterStage_ = ({}: CenterStage_Props) => {
       <div
         className={`w-full h-[35px] ${
           notification_ ? "bg-green-300" : "bg-transparent"
-        } transition-all duration-500 flex flex-row`}
+        } transition-all duration-500 flex flex-row z-40`}
       >
-        <div className={`text-[15px] ${
-          notification_ ? "opacity-70" : "opacity-0"} transition-all duration-500 font-medium mb-1 w-full my-1 pl-[50px] text-center justify-center items-center`}>
+        <div
+          className={`text-[15px] ${
+            notification_ ? "opacity-70" : "opacity-0"
+          } transition-all duration-500 font-medium mb-1 w-full my-1 pl-[50px] text-center justify-center items-center`}
+        >
           Thank you for supporting our service.
         </div>
         <FontAwesomeIcon
           icon={faXmarkCircle}
           className={`m-2 h-[18px] w-[18px] ${
-            notification_ ? 'text-black/80 cursor-pointer' : 'text-black/0'} ml-auto mr-3 mt-2 transition-all duration-500 absolute top-0 right-0`}
+            notification_ ? "text-black/80 cursor-pointer" : "text-black/0"
+          } ml-auto mr-3 mt-2 transition-all duration-500 absolute top-0 right-0`}
           onClick={() => {
-            setNotification_(false)
+            setNotification_(false);
           }}
         />
       </div>
