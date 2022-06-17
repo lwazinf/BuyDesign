@@ -16,4 +16,8 @@
       input:focus {
         outline: none
       }
+
+      .rotateY {
+        transform: rotateY(30deg) rotateX(12deg) rotateZ(-12deg);
+      }
 }

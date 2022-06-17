@@ -1,3 +1,5 @@
+// 👇️ 
+
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { articleState, colorState, sizeState, accentState, addressState, baseState, countryState, emailState, walletState } from "../components/atoms/atoms";
@@ -12,30 +14,33 @@ const CenterStage_ = ({}: CenterStage_Props) => {
   const [email_, setEmail_] = useRecoilState(emailState);
   const [article_, setArticle_] = useRecoilState(articleState);
   const [size_, setSize_] = useRecoilState(sizeState);
+
   return (
     <div
-      className={`rounded-[4px] shadow-md bg-white w-[830px] h-[600px] absolute top-[70px] left-0 overflow-hidden`}
+      className={`rounded-[4px] shadow-md bg-white w-[830px] h-[500px] absolute top-[70px] left-0 overflow-hidden`}
     >
       <div className={`w-full h-[35px] bg-green-300`} />
       <div
         className={`w-full h-[400px] flex flex-row items-center justify-center relative mb-4 mt-4`}
       >
         <img
-          src={`/assets/images/hoodie.png`}
-          className={`h-full object-cover ml-[100px]`}
+          src={`/assets/images/${article_}.png`}
+          className={`${article_ == 'hoodie' ? 'h-full' : 'h-[50%]'} object-cover ${article_ == 'hoodie' ? 'ml-[100px]' : 'ml-[80px] mr-[20px]'}`}
+// @ts-ignore
           style={{ filter: colors_[base_] }}
         />
         <img
-          src={`/assets/images/hoodie.png`}
-          className={`h-full object-cover absolute left-[100px]`}
+          src={`/assets/images/${article_}.png`}
+          className={`${article_ == 'hoodie' ? 'h-full' : 'h-[50%]'} object-cover absolute ${article_ == 'hoodie' ? 'left-[100px]' : 'left-[80px]'}`}
           style={{ mixBlendMode: "multiply" }}
         />
         <div
-          className={`absolute h-[130px] w-[150px] mt-1 opacity-100 flex items-center justify-center left-[175px] top-[90px]`}
+          className={`absolute ${article_ == 'hoodie' ? 'h-[130px] top-[90px] left-[175px]' : 'h-[100px] top-[110px] left-[155px] rotateY'} w-[150px] mt-1 opacity-100 flex items-center justify-center`}
         >
           <img
             src={`/assets/images/LwaziNF.png`}
             className={`h-full object-cover`}
+// @ts-ignore
             style={{ filter: colors_[accent_] }}
           />
         </div>
@@ -60,7 +65,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
                 className={`h-full object-cover`}
               />
             </div>
-            <div
+            {/* <div
               className={`h-full p-4 ${
                 article_ == "shoe" ? "bg-blue-500/90" : "bg-blue-500/50"
               } border-solid border-gray-200 border-[1px] flex items-center justify-center rounded-[4px] mx-1 cursor-pointer hover:opacity-100 opacity-70 transition-all duration-200`}
@@ -72,13 +77,15 @@ const CenterStage_ = ({}: CenterStage_Props) => {
                 src={`/assets/images/shoe.png`}
                 className={`h-full object-cover`}
               />
-            </div>
+            </div> */}
             <div
               className={`h-full p-4 ${
                 article_ == "cap" ? "bg-blue-500/90" : "bg-blue-500/50"
               } border-solid border-gray-200 border-[1px] flex items-center justify-center rounded-[4px] mx-1 cursor-pointer hover:opacity-100 opacity-70 transition-all duration-200`}
               onClick={() => {
                 setArticle_("cap");
+                setAccent_("white");
+                setBase_("white");
               }}
             >
               <img
