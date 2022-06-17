@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import { articleState, colorState, sizeState } from "../components/atoms/atoms";
+import { articleState, colorState, sizeState, accentState, addressState, baseState, countryState, emailState, walletState } from "../components/atoms/atoms";
 
 interface CenterStage_Props {}
 
 const CenterStage_ = ({}: CenterStage_Props) => {
   const [colors_, setColors_] = useRecoilState(colorState);
+  const [accent_, setAccent_] = useRecoilState(accentState);
+  const [base_, setBase_] = useRecoilState(baseState);
+  const [country_, setCountry_] = useRecoilState(countryState);
+  const [email_, setEmail_] = useRecoilState(emailState);
   const [article_, setArticle_] = useRecoilState(articleState);
   const [size_, setSize_] = useRecoilState(sizeState);
-  const [base_, setBase_] = useState("white");
-  const [accent_, setAccent_] = useState("white");
   return (
     <div
       className={`rounded-[4px] shadow-md bg-white w-[830px] h-[600px] absolute top-[70px] left-0 overflow-hidden`}

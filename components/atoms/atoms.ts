@@ -15,6 +15,31 @@ export const articleState = atom({
   default: "hoodie",
 });
 
+export const baseState : any = atom({
+  key: "baseState",
+  default: "white",
+});
+
+export const accentState : any = atom({
+  key: "accentState",
+  default: "white",
+});
+
+export const emailState = atom({
+  key: "emailState",
+  default: "",
+});
+
+export const addressState = atom({
+  key: "addressState",
+  default: "",
+});
+
+export const countryState = atom({
+  key: "countryState",
+  default: "",
+});
+
 export const colorState = atom({
   key: "colorState",
   default: {
