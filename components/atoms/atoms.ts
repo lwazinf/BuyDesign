@@ -5,6 +5,11 @@ export const walletState = atom({
   default: false,
 });
 
+export const notificationState = atom({
+  key: "notificationState",
+  default: false,
+});
+
 export const sizeState = atom({
   key: "sizeState",
   default: "medium",
@@ -15,12 +20,12 @@ export const articleState = atom({
   default: "hoodie",
 });
 
-export const baseState : any = atom({
+export const baseState = atom({
   key: "baseState",
   default: "white",
 });
 
-export const accentState : any = atom({
+export const accentState = atom({
   key: "accentState",
   default: "white",
 });

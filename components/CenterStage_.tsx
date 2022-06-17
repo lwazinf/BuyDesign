@@ -1,8 +1,22 @@
-// 👇️ 
+// 👇️
 
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import { articleState, colorState, sizeState, accentState, addressState, baseState, countryState, emailState, walletState } from "../components/atoms/atoms";
+import {
+  articleState,
+  colorState,
+  sizeState,
+  accentState,
+  addressState,
+  baseState,
+  countryState,
+  emailState,
+  walletState,
+  notificationState,
+} from "../components/atoms/atoms";
+
+import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface CenterStage_Props {}
 
@@ -14,33 +28,63 @@ const CenterStage_ = ({}: CenterStage_Props) => {
   const [email_, setEmail_] = useRecoilState(emailState);
   const [article_, setArticle_] = useRecoilState(articleState);
   const [size_, setSize_] = useRecoilState(sizeState);
+  const [notification_, setNotification_] = useRecoilState(notificationState);
 
   return (
     <div
       className={`rounded-[4px] shadow-md bg-white w-[830px] h-[500px] absolute top-[70px] left-0 overflow-hidden`}
     >
-      <div className={`w-full h-[35px] bg-green-300`} />
+      <div
+        className={`w-full h-[35px] ${
+          notification_ ? "bg-green-300" : "bg-transparent"
+        } transition-all duration-500 flex flex-row`}
+      >
+        <div className={`text-[15px] ${
+          notification_ ? "opacity-70" : "opacity-0"} transition-all duration-500 font-medium mb-1 w-full my-1 pl-[50px] text-center justify-center items-center`}>
+          Thank you for supporting our service.
+        </div>
+        <FontAwesomeIcon
+          icon={faXmarkCircle}
+          className={`m-2 h-[18px] w-[18px] ${
+            notification_ ? 'text-black/80 cursor-pointer' : 'text-black/0'} ml-auto mr-3 mt-2 transition-all duration-500 absolute top-0 right-0`}
+          onClick={() => {
+            setNotification_(false)
+          }}
+        />
+      </div>
       <div
         className={`w-full h-[400px] flex flex-row items-center justify-center relative mb-4 mt-4`}
       >
         <img
           src={`/assets/images/${article_}.png`}
-          className={`${article_ == 'hoodie' ? 'h-full' : 'h-[50%]'} object-cover ${article_ == 'hoodie' ? 'ml-[100px]' : 'ml-[80px] mr-[20px]'}`}
-// @ts-ignore
+          className={`${
+            article_ == "hoodie" ? "h-full" : "h-[50%]"
+          } object-cover ${
+            article_ == "hoodie" ? "ml-[100px]" : "ml-[80px] mr-[20px]"
+          }`}
+          // @ts-ignore
           style={{ filter: colors_[base_] }}
         />
         <img
           src={`/assets/images/${article_}.png`}
-          className={`${article_ == 'hoodie' ? 'h-full' : 'h-[50%]'} object-cover absolute ${article_ == 'hoodie' ? 'left-[100px]' : 'left-[80px]'}`}
+          className={`${
+            article_ == "hoodie" ? "h-full" : "h-[50%]"
+          } object-cover absolute ${
+            article_ == "hoodie" ? "left-[100px]" : "left-[80px]"
+          }`}
           style={{ mixBlendMode: "multiply" }}
         />
         <div
-          className={`absolute ${article_ == 'hoodie' ? 'h-[130px] top-[90px] left-[175px]' : 'h-[100px] top-[110px] left-[155px] rotateY'} w-[150px] mt-1 opacity-100 flex items-center justify-center`}
+          className={`absolute ${
+            article_ == "hoodie"
+              ? "h-[130px] top-[90px] left-[175px]"
+              : "h-[100px] top-[110px] left-[155px] rotateY"
+          } w-[150px] mt-1 opacity-100 flex items-center justify-center`}
         >
           <img
             src={`/assets/images/LwaziNF.png`}
             className={`h-full object-cover`}
-// @ts-ignore
+            // @ts-ignore
             style={{ filter: colors_[accent_] }}
           />
         </div>
