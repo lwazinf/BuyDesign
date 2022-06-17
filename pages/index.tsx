@@ -7,8 +7,8 @@ import Payments_ from "../components/Payments_";
 const Home: NextPage = () => {
   return (
     <div className="flex flex-row items-center justify-center w-[1200px] min-h-screen relative">
-      <CenterStage_/>
-      <Payments_/>
+      <CenterStage_ />
+      <Payments_ />
     </div>
   );
 };

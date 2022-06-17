@@ -35,6 +35,30 @@ const CenterStage_ = ({}: CenterStage_Props) => {
       className={`rounded-[4px] shadow-md bg-white w-[830px] h-[500px] absolute top-[70px] left-0 overflow-hidden`}
     >
       <div
+        className={`flex h-[200px] w-[400px] rotate-3 self-center absolute top-[50px] opacity-60`}
+      >
+        <img
+          className="relative left-[-150px] top-[-50px] hidden h-[280px] rotate-[-100deg] opacity-40 transition-all duration-200 md:flex"
+          src="/assets/images/LwaziNF.png"
+        />
+        <img
+          className="relative right-[150px] top-[180px] hidden h-[200px] -rotate-45 opacity-20 transition-all duration-200 md:flex"
+          src="/assets/images/LwaziNF.png"
+        />
+        <img
+          className="relative right-[60px] top-[-20px] hidden h-[100px] rotate-[-5deg] opacity-10 transition-all duration-200 md:flex"
+          src="/assets/images/LwaziNF.png"
+        />
+        <img
+          className="relative right-[80px] top-[0px] hidden h-[400px] rotate-[30deg] opacity-30 transition-all duration-200 md:flex"
+          src="/assets/images/LwaziNF.png"
+        />
+        <img
+          className="relative left-[-640px] top-[-120px] hidden h-[180px] rotate-[-200deg] opacity-60 transition-all duration-200 md:flex"
+          src="/assets/images/LwaziNF.png"
+        />
+      </div>
+      <div
         className={`w-full h-[35px] ${
           notification_ ? "bg-green-300" : "bg-transparent"
         } transition-all duration-500 flex flex-row`}
@@ -89,7 +113,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
           />
         </div>
         <div
-          className={`w-[350px] h-[400px] ml-auto mr-[30px] bg-gray-50 border-solid border-gray-300 border-[0.5px] rounded-[4px] mb-1 p-1 flex flex-col items-center justify-center`}
+          className={`w-[350px] h-[400px] ml-auto mr-[30px] bg-gray-50/90 border-solid border-gray-300 border-[0.5px] rounded-[4px] mb-1 p-1 flex flex-col items-center justify-center`}
         >
           <div
             className={`w-full h-[133px] flex flex-row items-center justify-center py-4`}
