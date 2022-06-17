@@ -19,6 +19,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 interface CenterStage_Props {}
 
 const CenterStage_ = ({}: CenterStage_Props) => {
+  // 👇️👇️👇️ Recoil atoms..
   const [colors_, setColors_] = useRecoilState(colorState);
   const [accent_, setAccent_] = useRecoilState(accentState);
   const [base_, setBase_] = useRecoilState(baseState);
@@ -32,6 +33,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
     <div
       className={`rounded-[4px] shadow-md bg-white w-[830px] h-[500px] absolute top-[70px] left-0 overflow-hidden`}
     >
+  {/* // 👇️👇️👇️ Floating logo background.. */}
       <div
         className={`flex h-[200px] w-[400px] rotate-3 self-center absolute top-[50px] opacity-60 z-0`}
       >
@@ -56,6 +58,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
           src="/assets/images/LwaziNF.png"
         />
       </div>
+  {/* // 👇️👇️👇️ Notification Banner.. */}
       <div
         className={`w-full h-[35px] ${
           notification_ ? "bg-green-300" : "bg-transparent"
@@ -81,6 +84,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
       <div
         className={`w-full h-[400px] flex flex-row items-center justify-center relative mb-4 mt-4`}
       >
+  {/* // 👇️👇️👇️ Full Color article.. */}
         <img
           src={`/assets/images/${article_}.png`}
           className={`${
@@ -91,6 +95,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
           // @ts-ignore
           style={{ filter: colors_[base_] }}
         />
+  {/* // 👇️👇️👇️ Overlay article.. */}
         <img
           src={`/assets/images/${article_}.png`}
           className={`${
@@ -120,7 +125,8 @@ const CenterStage_ = ({}: CenterStage_Props) => {
           <div
             className={`w-full h-[133px] flex flex-row items-center justify-center py-4`}
           >
-            <div
+  {/* // 👇️👇️👇️ Article selectors, reset all styling when pressed to black and white.. */}
+  <div
               className={`h-full p-4 ${
                 article_ == "hoodie" ? "bg-blue-500/90" : "bg-blue-500/50"
               } border-solid border-gray-200 border-[1px] flex items-center justify-center rounded-[4px] mx-1 cursor-pointer hover:opacity-100 opacity-70 transition-all duration-200`}
@@ -164,7 +170,8 @@ const CenterStage_ = ({}: CenterStage_Props) => {
               />
             </div>
           </div>
-          <p className={`text-[15px] opacity-50 font-bold mb-1 w-full`}>
+  {/* // 👇️👇️👇️ Size selectors, caps aren't S/M/L though.. */}
+  <p className={`text-[15px] opacity-50 font-bold mb-1 w-full`}>
             Size:
           </p>
           <div className={`flex flex-row w-full h-[30px] mb-5`}>
@@ -205,6 +212,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
               LG
             </div>
           </div>
+  {/* // 👇️👇️👇️ Base color selectors.. */}
           <p className={`text-[15px] opacity-50 font-bold mb-1 w-full`}>
             Base Color:
           </p>
@@ -258,6 +266,7 @@ const CenterStage_ = ({}: CenterStage_Props) => {
               }}
             />
           </div>
+  {/* // 👇️👇️👇️ Accent color selectors.. */}
           <p className={`text-[15px] opacity-50 font-bold mb-1 w-full`}>
             Accent Color:
           </p>
